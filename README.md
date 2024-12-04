@@ -15,12 +15,7 @@ Détection de l'obfuscation JavaScript : Analyse les scripts pour détecter d’
 
 
 Installation
-Assurez-vous que Python 3.x est installé. Installez également les dépendances requises en exécutant :
-
-bash
-Copier le code
-pip install -r requirements.txt
-Utilisation
+Assurez-vous que Python 3.x est installé.
 Exécutez le script en utilisant la commande suivante :
 
 bash
