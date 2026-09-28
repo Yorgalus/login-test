@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<title>Rapport login-test</title>
+<style>
+  body { font-family: system-ui, sans-serif; background:#f4f3ee; color:#1a1a1a; margin:0; padding:30px; }
+  h1 { font-size:22px; }
+  .meta { color:#666; font-size:13px; margin-bottom:20px; }
+  .card { background:#fff; border-left:5px solid #666; border-radius:4px;
+          padding:12px 16px; margin-bottom:12px; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+  .head { display:flex; align-items:center; gap:12px; }
+  .title { font-weight:600; font-size:15px; }
+  .badge { color:#fff; font-size:11px; padding:2px 8px; border-radius:3px; }
+  .sev { font-size:12px; text-transform:uppercase; letter-spacing:.05em; margin-left:auto; }
+  .detail { font-size:13px; margin:8px 0 4px; }
+  .reco { font-size:12px; color:#444; }
+</style></head>
+<body>
+  <h1>Rapport d'audit - login-test v2</h1>
+  <div class="meta">Cible : http://exemple-lab/login<br>Date : 2026-09-28 09:14</div>
+  
+        <div class="card" style="border-left-color:#C0392B">
+          <div class="head">
+            <span class="title">Injection SQL</span>
+            <span class="badge" style="background:#C0392B">VULNÉRABLE</span>
+            <span class="sev" style="color:#C0392B">critique</span>
+          </div>
+          <p class="detail">Contournement possible avec le payload : ' OR '1'='1</p>
+          <p class="reco"><b>Recommandation :</b> Utiliser des requetes preparees.</p>
+        </div>
+        <div class="card" style="border-left-color:#2E7D32">
+          <div class="head">
+            <span class="title">XSS</span>
+            <span class="badge" style="background:#2E7D32">OK</span>
+            <span class="sev" style="color:#2E7D32">info</span>
+          </div>
+          <p class="detail">Aucune charge reflechie sans echappement detectee.</p>
+          <p class="reco"><b>Recommandation :</b> Maintenir l'echappement et une CSP.</p>
+        </div>
+        <div class="card" style="border-left-color:#C0392B">
+          <div class="head">
+            <span class="title">Injection de template (SSTI)</span>
+            <span class="badge" style="background:#C0392B">VULNÉRABLE</span>
+            <span class="sev" style="color:#C0392B">critique</span>
+          </div>
+          <p class="detail">Le template a evalue 7*7 -> 49</p>
+          <p class="reco"><b>Recommandation :</b> Isoler les entrees des templates.</p>
+        </div>
+        <div class="card" style="border-left-color:#2E7D32">
+          <div class="head">
+            <span class="title">Identifiants par defaut</span>
+            <span class="badge" style="background:#2E7D32">OK</span>
+            <span class="sev" style="color:#2E7D32">info</span>
+          </div>
+          <p class="detail">Aucun couple par defaut n'a fonctionne.</p>
+          <p class="reco"><b>Recommandation :</b> Interdire les identifiants faibles.</p>
+        </div>
+        <div class="card" style="border-left-color:#B5710B">
+          <div class="head">
+            <span class="title">En-tetes de securite</span>
+            <span class="badge" style="background:#C0392B">VULNÉRABLE</span>
+            <span class="sev" style="color:#B5710B">moyenne</span>
+          </div>
+          <p class="detail">En-tetes manquants : Content-Security-Policy, X-Frame-Options</p>
+          <p class="reco"><b>Recommandation :</b> Ajouter ces en-tetes.</p>
+        </div>
+</body></html>
